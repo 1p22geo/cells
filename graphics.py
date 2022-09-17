@@ -1,6 +1,6 @@
 import pygame
-import program.data.cells as cells
-import program.data.constants as const
+import cells as cells
+import constants as const
 
 class Graphics:
     def __init__(self):

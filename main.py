@@ -4,9 +4,9 @@
 # **********************
 
 import pygame
-import program.game as gamefile
-import program.graphics as graphicsfile
-import program.data.constants as const
+import game as gamefile
+import graphics as graphicsfile
+import constants as const
 
 pygame.init()
 

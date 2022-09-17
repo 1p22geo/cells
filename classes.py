@@ -5,7 +5,7 @@
 # *****************************
 
 import pygame
-import program.data.constants as const
+import constants as const
 
 
 class Tile:

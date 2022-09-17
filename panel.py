@@ -1,6 +1,6 @@
 import pygame
-import program.data.constants as const
-import program.data.classes as classes
+import constants as const
+import classes as classes
 class Panel:
     def __init__(self,pos,display):
         self.image = pygame.image.load("images\\tile_selected_dblue.png")

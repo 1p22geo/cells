@@ -6,10 +6,10 @@
 import pygame
 from random import choice, randint
 import math
-import program.data.classes as classes
-import program.data.constants as const
-import program.data.cells as cells
-import program.data.panel as panel
+import classes as classes
+import constants as const
+import cells as cells
+import panel as panel
 
 class Game:
     def __init__(self, tilesize,display):

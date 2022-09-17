@@ -1,2 +1,3 @@
 # game
-spaceship go brrr
+weird cell simulator game
+pls dont play it
