@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="backdrop_dark.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="519.5194"
+     inkscape:cy="460.63557"
+     inkscape:window-width="1800"
+     inkscape:window-height="1096"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264722"
+       id="rect846"
+       width="317.23526"
+       height="211.40195"
+       x="0.13236137"
+       y="0.1323614"
+       inkscape:export-filename="C:\Users\BG\mu_code\game\images\backdrop_dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="opacity:1;fill:#000080;fill-opacity:1;stroke:none;stroke-width:0.246702"
+       id="rect1040"
+       width="275.16666"
+       height="10.583333"
+       x="21.166666"
+       y="0.1307978"
+       inkscape:export-filename="C:\Users\BG\mu_code\game\images\backdrop_dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#000080;stroke:none;stroke-width:0.187358px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="M 21.253499,0.09218545 V 10.776778 L 10.805945,0.09376401 21.253499,0.09218545"
+       id="path8073"
+       inkscape:export-filename="C:\Users\BG\mu_code\game\images\backdrop_dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#000080;fill-opacity:1;stroke:none;stroke-width:0.187358px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 296.20438,0.1292188 V 10.813812 l 10.44756,-10.6830142 -10.44756,-0.0016"
+       id="path8073-1"
+       inkscape:export-filename="C:\Users\BG\mu_code\game\images\backdrop_dark.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
