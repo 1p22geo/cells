@@ -6,7 +6,7 @@
 
 import pygame
 import constants as const
-ftom tile import Tile
+from tile import Tile
 
 
 class Board:
