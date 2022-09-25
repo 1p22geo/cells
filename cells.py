@@ -111,9 +111,9 @@ class Cell:
             game.visibility -= 100
         
 
-    def specA(self, game):
+    def specA(self, game, tile):
         if self.type == "Unspecialised cell":
-            self = DataCollector()
+            tile.cell = DataCollector()
         elif self.type == "Data collector cell":
             self.type = "Mass data collector"
             self.spec_cost = [100, 0, 0, 0]
@@ -190,7 +190,7 @@ class Cell:
                 self.cooldown = 100
                 game.terminal_already_exists = True
     
-    def specB(self):
+    def specB(self, tile):
         if self.type == "Data collector cell":
             self.type = "Camouflage cell"
             self.spec_cost = [0, 0, 0, 100]

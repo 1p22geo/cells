@@ -60,12 +60,12 @@ class Panel:
         if tile_selected.cell:
             if (tile_selected.cell.specBpossible):
                 if (click[0] >= self.pos[0] + 40 and click[0] <= self.pos[0] + 300 and click[1] >= self.pos[1] + 400 and click[1] <= self.pos[1] + 440):
-                    tile_selected.cell.specB()
+                    tile_selected.cell.specB(tile_selected)
             elif (tile_selected.cell.type == "Unspecialised cell"):
                 if (click[0] >= self.pos[0] + 40 and click[0] <= self.pos[0] + 300 and click[1] >= self.pos[1] + 400 and click[1] <= self.pos[1] + 440):
                     tile_selected.cell.divide(game.board)
             if (click[0] >= self.pos[0] + 40 and click[0] <= self.pos[0] + 300 and click[1] >= self.pos[1] + 450 and click[1] <= self.pos[1] + 490):
-                tile_selected.cell.specA(game)
+                tile_selected.cell.specA(game, tile_selected)
             
 
         
@@ -212,7 +212,7 @@ class Panel:
                 self.pos[1] + 350,
             ),
         )
-        disp_text_surface_4 = self.font_small.render(str(tile_selected.dataCount), 1, (0, 0, 255))
+        disp_text_surface_4 = self.font_small.render(str(int(tile_selected.dataCount)), 1, (0, 0, 255))
         self.display.blit(
             disp_text_surface_4,
             (
