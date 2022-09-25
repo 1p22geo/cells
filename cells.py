@@ -113,19 +113,7 @@ class Cell:
 
     def specA(self, game):
         if self.type == "Unspecialised cell":
-            self.type = "Data collector cell"
-            self.spec_cost = [10, 0, 0, 0]
-            self.produced = [0.2, 0, 0, 0]
-            self.description = [
-                "- Produces Data",
-                "- Can't be divided",
-                "- Can be re-specialised",
-                "  into a Mass",
-                "  Data collector",
-                "",
-            ]
-            self.specBpossible = True
-            self.cooldownSpeed = 0
+            self = DataCollector()
         elif self.type == "Data collector cell":
             self.type = "Mass data collector"
             self.spec_cost = [100, 0, 0, 0]
@@ -232,3 +220,19 @@ class Cell:
             self.cooldownSpeed = 0.5
             self.spec_cost = [0,0,100,0]
         self.cooldown = 100
+class DataCollector(Cell):
+    def __init__(self):
+        super().__init__()
+        self.type = "Data collector cell"
+        self.spec_cost = [10, 0, 0, 0]
+        self.produced = [0.2, 0, 0, 0]
+        self.description = [
+            "- Produces Data",
+            "- Can't be divided",
+            "- Can be re-specialised",
+            "  into a Mass",
+            "  Data collector",
+            "",
+        ]
+        self.specBpossible = True
+        self.cooldownSpeed = 0
