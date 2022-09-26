@@ -1,2 +1,4 @@
 $ game .gitignore
 __pycache__
+.vscode
+*.svg
