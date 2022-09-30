@@ -29,7 +29,7 @@ class Game:
         self.gameover = False
         self.gamepause = 0
         self.cutscene = 0
-        self.terminal_level = 0
+        self.terminal = None
         self.cutscene_displayed = None
 
     def check_events(self):

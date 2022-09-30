@@ -149,8 +149,8 @@ class Panel:
 
     def draw_2(self,terminal_level):
         disp_text_surface_3 = self.font_small.render("level "+str(terminal_level), 1, (0, 0, 255))
-        disp_text_surface_4 = self.font_small.render(str(const.terminal_level_req[terminal_level+1]), 1, (0, 0, 255))
-        disp_text_surface_5 = self.font_small.render(str(const.terminal_level_req_unit[terminal_level+1]), 1, (0, 0, 255))
+        disp_text_surface_4 = self.font_small.render(str(const.terminal_level_req[terminal_level]), 1, (0, 0, 255))
+        disp_text_surface_5 = self.font_small.render(str(const.terminal_level_req_unit[terminal_level]), 1, (0, 0, 255))
         disp_text_surface_6 = self.font_small.render("Needed for next level", 1, (0, 0, 255))
         
         self.display.blit(

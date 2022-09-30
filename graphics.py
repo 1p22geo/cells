@@ -76,7 +76,7 @@ class Graphics:
                 if game.board.tile_selected.cell and cell_type != "User terminal":
                     game.panel.draw_1(game.board.tile_selected)
                 elif cell_type == "User terminal":
-                    game.panel.draw_2(game.terminal_level)
+                    game.panel.draw_2(game.board.tile_selected.cell.level)
                 elif not game.board.tile_selected.cell :
                     game.panel.draw_3(game.board.tile_selected)
 
