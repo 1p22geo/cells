@@ -93,3 +93,23 @@ class EffPrime(Cell):
         self.cooldownSpeed = 0
         self.spec_cost = [0, 0, 100, 1000]
         self.cooldown = 100
+
+class Camo_Cell(Cell):
+    def __init__(self):
+        super().__init__()
+        self.type = "Camouflage cell"
+        self.spec_cost = [0, 0, 0, 100]
+        self.produced = [0, 0, 0, -10]
+        self.description = [
+            "- Decreases Visibility",
+            "  to remove debuffs",
+            "- You will need",
+            "  a lot of them",
+            "  to cover everything",
+            "",
+        ]
+        self.specBpossible = False
+        self.cooldownSpeed = 0
+    def act(self, game):
+        if game.visibility > 100:
+            game.visibility -= 100

@@ -16,6 +16,13 @@ class Cell:
                 "- Spec cost : 10",
                 "",
             ]
+    
+    def act(self, game):
+        """"
+        Why don't we have abstract methods in Python?
+        Honestly, that would be useful
+        """
+        pass
 
     def divide(self,board):
         x = board.tile_selected.tilex
@@ -99,10 +106,9 @@ class Cell:
         game.visibility += abs(self.produced[2])*100
         #game.pi += self.produced[3]*debuff
         game.visibility += abs(self.produced[3])
-
+        self.act(game)
         self.cooldown -= self.cooldownSpeed
-        if self.type == "Camouflage cell" and game.visibility > 100:
-            game.visibility -= 100
+
         
 
     def specA(self, game, tile):
@@ -136,19 +142,7 @@ class Cell:
     
     def specB(self, tile):
         if self.type == "Data collector cell":
-            self.type = "Camouflage cell"
-            self.spec_cost = [0, 0, 0, 100]
-            self.produced = [0, 0, 0, -10]
-            self.description = [
-                "- Decreases Visibility",
-                "  to remove debuffs",
-                "- You will need",
-                "  a lot of them",
-                "  to cover everything",
-                "",
-            ]
-            self.specBpossible = False
-            self.cooldownSpeed = 0
+            tile.cell = cells.Camo_Cell()
         elif self.type == "Prime number collector":
             self.type = "Replicator cell"
             self.produced = [-0.5, -0.2, 0, 0]
