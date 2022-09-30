@@ -8,7 +8,7 @@ from random import choice, randint
 import math
 import classes as classes
 import constants as const
-import cells as cells
+import unspec_cell as cell
 import panel as panel
 
 class Game:
@@ -24,7 +24,7 @@ class Game:
         self.cell_divide = False
         self.place_cell = None
         self.visibility = 0
-        self.board.tiles[4][4].add_cell(cells.Cell())
+        self.board.tiles[4][4].add_cell(cell.Cell())
         self.terminal_already_exists = False
         self.gameover = False
         self.gamepause = 0
@@ -68,7 +68,7 @@ class Game:
                                     continue
                                 tile_c = self.board.tiles[tile_index[0]][tile_index[1]]
                                 if not tile.dataType:
-                                    tile_c.add_cell(cells.Cell())
+                                    tile_c.add_cell(cell.Cell())
                                     break
                             tile.cell.cooldown = 100
                     

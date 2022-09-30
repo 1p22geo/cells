@@ -1,4 +1,4 @@
-import cells, math
+import math
 
 class Cell:
     def __init__(self):
@@ -112,6 +112,7 @@ class Cell:
         
 
     def specA(self, game, tile):
+        import cells, user_terminal_cell
         if self.type == "Unspecialised cell":
             tile.cell = cells.DataCollector()
         elif self.type == "Data collector cell":
@@ -125,22 +126,11 @@ class Cell:
 
         elif self.type == "Replicator cell":
             if not game.terminal_already_exists:
-                self.type = "User terminal"
-                self.description = [
-                    "- Contacts with the User",
-                    "  in order for him to",
-                    "  notice we're useful.",
-                    "- Requires sacrifices from",
-                    "  different types of data",
-                    "",
-                ]
-                self.produced = [0,0,0,0]
-                self.cooldownSpeed = 0
-                self.spec_cost = [0, 0, 50, 500]
-                self.cooldown = 100
+                tile.cell = user_terminal_cell.User_terminal()
                 game.terminal_already_exists = True
     
     def specB(self, tile):
+        import cells
         if self.type == "Data collector cell":
             tile.cell = cells.Camo_Cell()
         elif self.type == "Prime number collector":
