@@ -20,7 +20,7 @@ class User_terminal(Cell):
         self.cooldown = 100
         self.specBpossible = False
 
-    def act(self, game):
+    def raise_level(self, game):
         current_type = const.terminal_level_req_unit[self.level+1]
         needed = const.terminal_level_req[self.level+1]
         x = game.board.tile_selected.tilex
@@ -41,4 +41,6 @@ class User_terminal(Cell):
                 continue
             tile = game.board.tiles[tile_index[0]][tile_index[1]]
             if tile.dataType == current_type:
-                pass
+                if tile.dataCount >= needed:
+                    tile.dataCount -= needed
+                    self.level +=1

@@ -20,6 +20,7 @@ class Panel:
         self.button1b = classes.Button(pygame.image.load("images\\spec_button_blue.png"),(40,400),self.pos)
         self.button2 = classes.Button(pygame.image.load("images\\spec_button_blue.png"),(40,450),self.pos)
         self.button3 = classes.Button(pygame.image.load("images\\move_button_blue.png"),(40,500),self.pos)
+        self.button3b = classes.Button(pygame.image.load("images\\terminal_upgrade.png"),(40,500),self.pos)
 
     
     def is_x_clicked(self,click):
@@ -68,10 +69,13 @@ class Panel:
                 tile_selected.cell.specA(game, tile_selected)
             
 
-        
-        if (click[0] >= self.pos[0] + 40 and click[0] <= self.pos[0] + 300 and click[1] >= self.pos[1] + 500 and click[1] <= self.pos[1] + 540):
-            temp = tile_selected.pop_cell()
-            game.place_cell = temp
+            
+            if (click[0] >= self.pos[0] + 40 and click[0] <= self.pos[0] + 300 and click[1] >= self.pos[1] + 500 and click[1] <= self.pos[1] + 540):
+                if tile_selected.cell.type == "User terminal":
+                    tile_selected.cell.raise_level(game)
+                else:
+                    temp = tile_selected.pop_cell()
+                    game.place_cell = temp
         else:
             if (click[0] >= self.pos[0] + 50 and click[0] <= self.pos[0] + 70 and click[1] >= self.pos[1] + 300 and click[1] <= self.pos[1] + 320):
                 tile_selected.dataType = "data"
@@ -181,6 +185,7 @@ class Panel:
                 self.pos[1] + 280,
             ),
         )
+        self.button3b.blit(self.display)
 
     def draw_3(self, tile_selected):
 
