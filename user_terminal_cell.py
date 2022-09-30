@@ -21,8 +21,9 @@ class User_terminal(Cell):
         self.specBpossible = False
 
     def raise_level(self, game):
-        current_type = const.terminal_level_req_unit[self.level+1]
-        needed = const.terminal_level_req[self.level+1]
+        print(1)
+        current_type = const.terminal_level_req_unit[self.level]
+        needed = const.terminal_level_req[self.level]
         x = game.board.tile_selected.tilex
         y = game.board.tile_selected.tiley
         neighbor_tiles = \
@@ -37,10 +38,13 @@ class User_terminal(Cell):
             [x+1,y-1]
         ]
         for tile_index in neighbor_tiles:
+            print(2)
             if tile_index[0]<0 or tile_index[0]>9 or tile_index[1]<0 or tile_index[1]>9:
                 continue
             tile = game.board.tiles[tile_index[0]][tile_index[1]]
             if tile.dataType == current_type:
-                if tile.dataCount >= needed:
+                print(3)
+                if tile.dataCount >= needed: # debug
                     tile.dataCount -= needed
                     self.level +=1
+                    break
