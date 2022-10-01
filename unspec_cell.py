@@ -46,15 +46,13 @@ class Cell:
                 tile.add_cell(Cell())
                 break
 
-    def run(self, game, pos):
+    def is_tile_invalid(self,tile_index):
+        if tile_index[0]<0 or tile_index[0]>9 or tile_index[1]<0 or tile_index[1]>9:
+            return True
+        return False
 
-        debuff = math.log10(int(game.visibility)+1)-3
-        if debuff < 1:
-             debuff = 1
-
-        x = pos[0]
-        y = pos[1]
-        neighbor_tiles = \
+    def generate_neighbor_indexes(self,x,y):
+        return \
         [
             [x+1,y],
             [x+1,y+1],
@@ -65,9 +63,38 @@ class Cell:
             [x,y-1],
             [x+1,y-1]
         ]
+
+    def run(self, game, pos):
+
+        debuff = math.log10(int(game.visibility)+1)-3
+        if debuff < 1:
+             debuff = 1
+        x = pos[0]
+        y = pos[1]
+        neighbor_tiles = self.generate_neighbor_indexes(x,y)
+
         types = ["data","mass data", "prime numbers", "pi decimals"]
-        types_produced = []
-        m = 0
+        needed = []
+        supporting_tiles = {}
+        for a in range(len(self.produced)):
+            if self.produced[a] != 0:
+                needed.append(a)
+        for tile_index in neighbor_tiles:
+            if self.is_tile_invalid(tile_index):
+                continue
+            tile = game.board.tiles[tile_index[0]][tile_index[1]]
+            if not tile.dataType or tile.cell:
+                continue
+            if types.index(tile.dataType) in needed:
+                if self.produced[types.index(tile.dataType)] <0 and tile.dataCount <0:
+                    continue
+                supporting_tiles[tile.dataType] = tile
+                needed.remove(types.index(tile.dataType))
+        if not needed:
+            for type, tile in supporting_tiles.items():
+                tile.dataCount += self.produced[types.index(type)]
+
+        """ m = 0
         for a in self.produced:
             if a != 0:
                 types_produced.append(m)
@@ -100,7 +127,7 @@ class Cell:
                         continue
                     tile = game.board.tiles[tile_index[0]][tile_index[1]]
                     if tile.dataType == types[current_type]:
-                        tile.dataCount += self.produced[current_type]
+                        tile.dataCount += self.produced[current_type] """
 
 
 
