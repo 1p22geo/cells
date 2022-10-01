@@ -12,13 +12,13 @@ pygame.init()
 
 graphics = graphicsfile.Graphics()
 clock = pygame.time.Clock()
-game = gamefile.Game(graphics.TILE_SIZE,graphics.display)
+game = gamefile.Game(graphics.TILE_SIZE, graphics.display)
 
 while game.running:
     clock.tick(const.MAX_FPS)
     game.check_events()
     graphics.check_clicks(game)
-    #game.check_cutscenes() # cutscenes will be added later - probably 1.0
+    # game.check_cutscenes() # cutscenes will be added later - probably 1.0
     if not game.gamepause:
         game.run_game_loop()
     graphics.update_screen(game)

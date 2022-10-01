@@ -2,6 +2,7 @@ import pygame
 import cells as cells
 import constants as const
 
+
 class Graphics:
     def __init__(self):
         self.images = [
@@ -18,12 +19,13 @@ class Graphics:
         self.CELL_SIZE = 40
         self.ICON_SIZE = 20
         self.XBUTTONPOS = (360, 20)
-        self.display = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        self.display = pygame.display.set_mode(
+            (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
 
-    def check_clicks(self,game):
+    def check_clicks(self, game):
         for click in game.clicks:
             if game.gamepause:
-                game.gamepause -=1
+                game.gamepause -= 1
             else:
                 tile = game.board.click_handle(click)
                 if tile:
@@ -33,11 +35,11 @@ class Graphics:
                     game.board.tile_selected = tile
 
                 if game.board.tile_selected:  # the X button
-                    
-                    game.panel.check_click(game.board.tile_selected,click,game)
+
+                    game.panel.check_click(
+                        game.board.tile_selected, click, game)
                     if game.panel.is_x_clicked(click):
                         game.board.tile_selected = None
-                        
 
         game.clicks = []
 
@@ -46,7 +48,7 @@ class Graphics:
         game
     ):
         if game.gamepause:
-            self.display.blit(game.cutscene_displayed, (0,0))
+            self.display.blit(game.cutscene_displayed, (0, 0))
         else:
             self.display.fill((0, 0, 0))
             self.display.blit(self.images[0], (0, 0))
@@ -55,7 +57,8 @@ class Graphics:
             for row in game.board.tiles:
                 n = 0
                 for tile in row:
-                    self.display.blit(tile.image, [m * tile.size + self.MAP_X, n * tile.size + self.MAP_Y])
+                    self.display.blit(
+                        tile.image, [m * tile.size + self.MAP_X, n * tile.size + self.MAP_Y])
                     if tile.dataType == "cell":
                         tile.draw_cell(self.display)
                     elif tile.dataType:
@@ -65,8 +68,7 @@ class Graphics:
             if game.board.tile_selected:  # selected tile dialogue
                 font = pygame.font.Font(None, 40)
                 font_small = pygame.font.Font(None, 30)
-                game.panel.blit(self.display,game)
-
+                game.panel.blit(self.display, game)
 
                 if game.board.tile_selected.cell:
                     cell_type = game.board.tile_selected.cell.type
@@ -77,7 +79,7 @@ class Graphics:
                     game.panel.draw_1(game.board.tile_selected)
                 elif cell_type == "User terminal":
                     game.panel.draw_2(game.board.tile_selected.cell.level)
-                elif not game.board.tile_selected.cell :
+                elif not game.board.tile_selected.cell:
                     game.panel.draw_3(game.board.tile_selected)
 
             font = pygame.font.Font(None, 35)
@@ -91,5 +93,5 @@ class Graphics:
             self.display.blit(disp_text_surface_5, (100, 700))
 
             if game.gameover:
-                self.display.fill((0,0,0))
-                self.display.blit(self.images[1],(0,0))
+                self.display.fill((0, 0, 0))
+                self.display.blit(self.images[1], (0, 0))

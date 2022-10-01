@@ -4,8 +4,10 @@
 # You know, just in case
 # *********************
 
-import pygame, math
+import pygame
+import math
 from unspec_cell import Cell
+
 
 class DataCollector(Cell):
     def __init__(self):
@@ -24,6 +26,7 @@ class DataCollector(Cell):
         self.specBpossible = True
         self.cooldownSpeed = 0
 
+
 class MassCollector(Cell):
     def __init__(self):
         super().__init__()
@@ -41,6 +44,7 @@ class MassCollector(Cell):
         self.specBpossible = False
         self.cooldownSpeed = 0
 
+
 class PrimeCollector(Cell):
     def __init__(self):
         super().__init__()
@@ -57,6 +61,7 @@ class PrimeCollector(Cell):
         ]
         self.specBpossible = True
         self.cooldownSpeed = 0
+
 
 class PiCollector(Cell):
     def __init__(self):
@@ -76,6 +81,7 @@ class PiCollector(Cell):
         self.spec_cost = [0, 0, 100, 0]
         self.cooldown = 100
 
+
 class EffPrime(Cell):
     def __init__(self):
         super().__init__()
@@ -94,6 +100,7 @@ class EffPrime(Cell):
         self.spec_cost = [0, 0, 100, 1000]
         self.cooldown = 100
 
+
 class Camo_Cell(Cell):
     def __init__(self):
         super().__init__()
@@ -110,6 +117,7 @@ class Camo_Cell(Cell):
         ]
         self.specBpossible = False
         self.cooldownSpeed = 0
+
     def act(self, game):
         if game.visibility > 100:
             game.visibility -= 100
