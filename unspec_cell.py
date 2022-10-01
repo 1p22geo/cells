@@ -2,6 +2,7 @@ import math
 
 class Cell:
     def __init__(self):
+        self.active = True
         self.type = "Unspecialised cell"
         self.spec_cost = 0
         self.produced = [-0.02, 0, 0, 0]
@@ -91,45 +92,11 @@ class Cell:
                 supporting_tiles[tile.dataType] = tile
                 needed.remove(types.index(tile.dataType))
         if not needed:
+            self.active = True
             for type, tile in supporting_tiles.items():
                 tile.dataCount += self.produced[types.index(type)]
-
-        """ m = 0
-        for a in self.produced:
-            if a != 0:
-                types_produced.append(m)
-            m +=1
-        active = True
-        a = 0
-        for current_type in types_produced:
-            a = 0
-            for tile_index in neighbor_tiles:
-                if tile_index[0]<0 or tile_index[0]>9 or tile_index[1]<0 or tile_index[1]>9:
-                    continue
-                tile = game.board.tiles[tile_index[0]][tile_index[1]] #tile.dataCount >= (-1)*self.produced[current_type]:
-                if tile.dataType == types[current_type]:
-                    print(3)
-                    if self.produced[current_type] <0:
-                        print(4)
-                        if tile.dataCount < 0 :
-                            print(1)
-                            continue
-                    print(2)
-                    a = 1
-                    break
-            if a == 0:
-                active = False
-            break
-        if active:
-            for current_type in list(range(4)):
-                for tile_index in neighbor_tiles:
-                    if tile_index[0]<0 or tile_index[0]>9 or tile_index[1]<0 or tile_index[1]>9:
-                        continue
-                    tile = game.board.tiles[tile_index[0]][tile_index[1]]
-                    if tile.dataType == types[current_type]:
-                        tile.dataCount += self.produced[current_type] """
-
-
+        else:
+            self.active = False
 
 
         #game.data += self.produced[0]*debuff
@@ -140,8 +107,9 @@ class Cell:
         game.visibility += abs(self.produced[2])*100
         #game.pi += self.produced[3]*debuff
         game.visibility += abs(self.produced[3])
-        self.act(game)
-        self.cooldown -= self.cooldownSpeed
+        if self.active:
+            self.act(game)
+            self.cooldown -= self.cooldownSpeed
 
         
 
