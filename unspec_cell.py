@@ -79,8 +79,15 @@ class Cell:
             for tile_index in neighbor_tiles:
                 if tile_index[0]<0 or tile_index[0]>9 or tile_index[1]<0 or tile_index[1]>9:
                     continue
-                tile = game.board.tiles[tile_index[0]][tile_index[1]]
-                if tile.dataType == types[current_type] and tile.dataCount >= (-1)*self.produced[current_type]:
+                tile = game.board.tiles[tile_index[0]][tile_index[1]] #tile.dataCount >= (-1)*self.produced[current_type]:
+                if tile.dataType == types[current_type]:
+                    print(3)
+                    if self.produced[current_type] <0:
+                        print(4)
+                        if tile.dataCount < 0 :
+                            print(1)
+                            continue
+                    print(2)
                     a = 1
                     break
             if a == 0:
