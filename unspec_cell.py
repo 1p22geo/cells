@@ -29,17 +29,7 @@ class Cell:
     def divide(self, board):
         x = board.tile_selected.tilex
         y = board.tile_selected.tiley
-        neighbor_tiles = \
-            [
-                [x+1, y],
-                [x+1, y+1],
-                [x, y+1],
-                [x-1, y+1],
-                [x-1, y],
-                [x-1, y-1],
-                [x, y-1],
-                [x+1, y-1]
-            ]
+        neighbor_tiles = self.generate_neighbor_indexes(x, y)
         for tile_index in neighbor_tiles:
             if tile_index[0] < 0 or tile_index[0] > 9 or tile_index[1] < 0 or tile_index[1] > 9:
                 continue

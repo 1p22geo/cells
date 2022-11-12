@@ -28,17 +28,7 @@ class User_terminal(Cell):
         needed = const.terminal_level_req[self.level]
         x = game.board.tile_selected.tilex
         y = game.board.tile_selected.tiley
-        neighbor_tiles = \
-            [
-                [x+1, y],
-                [x+1, y+1],
-                [x, y+1],
-                [x-1, y+1],
-                [x-1, y],
-                [x-1, y-1],
-                [x, y-1],
-                [x+1, y-1]
-            ]
+        neighbor_tiles = self.generate_neighbor_indexes(x,y)
         for tile_index in neighbor_tiles:
             print(2)
             if tile_index[0] < 0 or tile_index[0] > 9 or tile_index[1] < 0 or tile_index[1] > 9:
@@ -46,7 +36,7 @@ class User_terminal(Cell):
             tile = game.board.tiles[tile_index[0]][tile_index[1]]
             if tile.dataType == current_type:
                 print(3)
-                if tile.dataCount >= needed:  # debug
+                if tile.dataCount >= needed:  
                     tile.dataCount -= needed
                     self.level += 1
                     break
